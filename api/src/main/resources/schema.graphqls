@@ -1,5 +1,5 @@
 type Query {
-  joke: Joke,
+  joke(category: JokeCategory): Joke,
 }
 
 type Joke {

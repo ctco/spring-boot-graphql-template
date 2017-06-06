@@ -16,8 +16,9 @@ public class JokeResolver {
     @Autowired
     private ICNDB icndb;
 
-    public Joke getJoke() {
-        JokeResponseModel response = icndb.getRandomJoke();
+    public Joke getJoke(JokeCategory category) {
+        JokeResponseModel response = category != null ? icndb.getRandomJokeByCategory(category)
+                                                      : icndb.getRandomJoke();
         JokeValueModel jokeValue = response.getValue();
         return new Joke(
             jokeValue.getJoke(),
