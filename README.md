@@ -37,10 +37,6 @@ Spring Boot, GraphQL template project with batteries included.
 
 `$ gradlew buld`
 
-## Start devmode
-
-`$ gradlew bootRun`
-
 # Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
 - [Feign](https://github.com/OpenFeign/feign) : HTTP Client library
