@@ -1,0 +1,7 @@
+type Query {
+    joke: Joke
+}
+
+type Joke {
+    text: String
+}

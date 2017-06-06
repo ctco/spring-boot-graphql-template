@@ -18,6 +18,12 @@ Spring Boot, GraphQL template project with batteries included.
 - Enable Annotation Processors
   -  Go to Setting->Build, Execution, Deployment-> Compiler->Annotation Processors
   -  Check _Enable annotation processing_
+  
+## GraphQL Tools
+  
+### IntelliJ
+
+- Download and install GraphQLJs [plugins](https://plugins.jetbrains.com/plugin/8097-js-graphql)
 
 ## Development Mode
 
@@ -40,3 +46,6 @@ Spring Boot, GraphQL template project with batteries included.
 - [Feign](https://github.com/OpenFeign/feign) : HTTP Client library
 - [Lombok](https://projectlombok.org/features/index.html) : Utility library for Java language
 - [Logback](http://logback.qos.ch/) : Logging library
+- [GraphQL](http://graphql.org/learn/) : API query runtime
+  - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)
+  - [GraphQL Java Tools](https://github.com/graphql-java/graphql-java-tools)

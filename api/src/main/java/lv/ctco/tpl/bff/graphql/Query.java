@@ -1,17 +1,17 @@
 package lv.ctco.tpl.bff.graphql;
 
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLField;
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLObject;
+import com.coxautodev.graphql.tools.GraphQLRootResolver;
 import lv.ctco.tpl.bff.graphql.resolvers.JokeResolver;
 import lv.ctco.tpl.bff.graphql.types.Joke;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@GraphQLObject
-public class Query {
+@Component
+public class Query implements GraphQLRootResolver {
 
-    @Autowired JokeResolver jokeResolver;
+    @Autowired
+    private JokeResolver jokeResolver;
 
-    @GraphQLField
     public Joke joke() {
         return jokeResolver.getJoke();
     }

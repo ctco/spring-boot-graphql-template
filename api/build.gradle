@@ -24,8 +24,8 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
   ext {
-    graphQLSpringVersion = "3.0.3"
-    graphQLSpringCommonVersion = "2.1.0-2016-05-22T16-50-32"
+    graphQLSpringVersion = "3.4.0"
+    graphQLToolsVersion = "3.0.2"
     feignVersion = '8.18.0'
     lombokVersion = '1.16.16'
   }
@@ -40,7 +40,8 @@ dependencies {
   // GraphiQL
   compile "com.graphql-java:graphiql-spring-boot-starter:${graphQLSpringVersion}"
 
-  compile "com.embedler.moon.graphql:spring-graphql-common:${graphQLSpringCommonVersion}"
+  // GraphQL Java Tools
+  compile "com.graphql-java:graphql-java-tools:${graphQLToolsVersion}"
 
   // Lombok
   compile "org.projectlombok:lombok:${lombokVersion}"
