@@ -39,7 +39,7 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Start devmode
 
-`$ gradlew build`
+`$ gradlew bootRun`
 
 # Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
