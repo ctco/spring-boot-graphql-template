@@ -1,0 +1,8 @@
+configure(subprojects) {
+    project.ext.repos = ['http://repo.maven.apache.org/maven2']
+    repositories {
+        mavenLocal()
+
+        repos.each { repo -> maven { url repo } }
+    }
+}

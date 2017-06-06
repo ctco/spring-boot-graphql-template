@@ -1,0 +1,52 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+
+        repos.each { repo -> maven { url repo } }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    ext {
+        graphQLSpringVersion = "3.0.3"
+        graphQLSpringCommonVersion = "2.1.0-2016-05-22T16-50-32"
+        feignVersion = '8.18.0'
+        lombokVersion = '1.16.16'
+    }
+
+    // Spring Boot starters
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-devtools'
+
+    // GraphQL
+    compile "com.graphql-java:graphql-spring-boot-starter:${graphQLSpringVersion}"
+
+    // GraphiQL
+    compile "com.graphql-java:graphiql-spring-boot-starter:${graphQLSpringVersion}"
+
+    compile "com.embedler.moon.graphql:spring-graphql-common:${graphQLSpringCommonVersion}"
+
+    // Lombok
+    compile "org.projectlombok:lombok:${lombokVersion}"
+
+    // Feign
+    compile "com.netflix.feign:feign-core:${feignVersion}"
+    compile "com.netflix.feign:feign-slf4j:${feignVersion}"
+    compile "com.netflix.feign:feign-jackson:${feignVersion}"
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
