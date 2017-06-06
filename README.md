@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ctco-dev/spring-boot-graphql-template.svg?branch=master)](https://travis-ci.org/ctco-dev/spring-boot-graphql-template)
 # spring-boot-graphql-template
 
 Spring Boot, GraphQL template project with batteries included.
