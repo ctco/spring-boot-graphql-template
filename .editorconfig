@@ -12,3 +12,6 @@ trim_trailing_whitespace = true
 
 [*.gradle]
 indent_size = 2
+
+[*.graphqls]
+indent_size = 2

@@ -1,7 +1,13 @@
 type Query {
-    joke: Joke
+  joke: Joke,
 }
 
 type Joke {
-    text: String
+  text: String!,
+  categories: [JokeCategory],
+}
+
+enum JokeCategory {
+  NERDY,
+  EXPLICIT,
 }
