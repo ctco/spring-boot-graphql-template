@@ -23,7 +23,7 @@ Spring Boot, GraphQL template project with batteries included.
   
 ### IntelliJ
 
-- Download and install GraphQLJs [plugins](https://plugins.jetbrains.com/plugin/8097-js-graphql)
+- Download and install GraphQLJs [plugin](https://plugins.jetbrains.com/plugin/8097-js-graphql)
 
 ## Development Mode
 
