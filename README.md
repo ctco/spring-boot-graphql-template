@@ -5,6 +5,7 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Features
 
+> What can it do?
 
 ## Required Software
 - JDK 1.8
@@ -24,22 +25,27 @@ Spring Boot, GraphQL template project with batteries included.
 
 - Download and install GraphQLJs [plugin](https://plugins.jetbrains.com/plugin/8097-js-graphql)
 
-## Development Mode
+## Develop
 
 `$ gradlew bootRun`
 
-## Run unit tests
+## Test
 
 `$ gradlew test`
 
-## Build project artifacts
+## Build
 
 `$ gradlew buld`
 
-# Tech Stack
+## Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
 - [Feign](https://github.com/OpenFeign/feign) : HTTP Client library
 - [Lombok](https://projectlombok.org/features/index.html) : Utility library for Java language
 - [GraphQL](http://graphql.org/learn/) : API query runtime
   - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)
   - [GraphQL Java Tools](https://github.com/graphql-java/graphql-java-tools)
+  
+## Cloud Deployment  
+
+- [Azure](https://github.com/ctco-dev/spring-boot-graphql-template/blob/master/cloud/azure/README.md)
+
