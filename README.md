@@ -8,7 +8,6 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Required Software
 - JDK 1.8
-- IntelliJ IDEA
 
 ## Lombok configuration
 
@@ -41,7 +40,6 @@ Spring Boot, GraphQL template project with batteries included.
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
 - [Feign](https://github.com/OpenFeign/feign) : HTTP Client library
 - [Lombok](https://projectlombok.org/features/index.html) : Utility library for Java language
-- [Logback](http://logback.qos.ch/) : Logging library
 - [GraphQL](http://graphql.org/learn/) : API query runtime
   - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)
   - [GraphQL Java Tools](https://github.com/graphql-java/graphql-java-tools)
