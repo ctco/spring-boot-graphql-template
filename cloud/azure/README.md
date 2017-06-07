@@ -16,4 +16,4 @@
 
 # References
 
-- https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-java-custom-upload
+- https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-java-custom-upload#springboot
