@@ -30,8 +30,13 @@ dependencies {
     lombokVersion = '1.16.16'
   }
 
+  configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+  }
+
   // Spring Boot starters
   compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
   compile 'org.springframework.boot:spring-boot-devtools'
 
   // GraphQL
