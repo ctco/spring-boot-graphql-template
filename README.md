@@ -10,18 +10,18 @@ Spring Boot, GraphQL template project with batteries included.
 ## Required Software
 - JDK 1.8
 
-## Lombok configuration
+### Lombok
 
-### IntelliJ 
+#### IntelliJ 
 
 - Download and install Lombok [plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
 - Enable Annotation Processors
   -  Go to Setting->Build, Execution, Deployment-> Compiler->Annotation Processors
   -  Check _Enable annotation processing_
   
-## GraphQL Tools
+### GraphQL Tools
   
-### IntelliJ
+#### IntelliJ
 
 - Download and install GraphQLJs [plugin](https://plugins.jetbrains.com/plugin/8097-js-graphql)
 
