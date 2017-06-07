@@ -1,11 +1,14 @@
 [![Build Status](https://travis-ci.org/ctco-dev/spring-boot-graphql-template.svg?branch=master)](https://travis-ci.org/ctco-dev/spring-boot-graphql-template)
+
 # spring-boot-graphql-template
 
 Spring Boot, GraphQL template project with batteries included.
 
 ## Features
-
-> What can it do?
+​
+- Configuration with [dotenv](https://12factor.net/config)
+  - Logging level, e.g. `LOGGING_LEVEL_ROOT=DEBUG`
+  - App properties, e.g. `APP_DEPENDENCY_API_HOST=example.com`
 
 ## Required Software
 - JDK 1.8

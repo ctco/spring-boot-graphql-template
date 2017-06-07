@@ -1,0 +1,21 @@
+def applyDotenv = {
+  def env = [:]
+  if (gradle.startParameter.taskNames.contains('bootRun')) {
+    def dotenv = ".env"
+    try {
+      new File("$project.rootDir/$dotenv").eachLine { line ->
+        def matcher = (line =~ /^\s*([\w\d\.\-_]+)\s*=\s*(.*)?\s*$/)
+        if (matcher.getCount() == 1 && matcher[0].size() == 3) {
+          env[matcher[0][1]] = matcher[0][2]
+        }
+      }
+    } catch (FileNotFoundException ex) {
+      println("Warning: $dotenv file not found, please make sure your environment has all the required variables.")
+    }
+  }
+  return env
+}
+
+ext {
+  dotenv = applyDotenv()
+}

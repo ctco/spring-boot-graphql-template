@@ -22,6 +22,12 @@ targetCompatibility = 1.8
 
 apply plugin: 'org.springframework.boot'
 
+apply from: 'dotenv.gradle'
+
+bootRun() {
+  systemProperties << dotenv
+}
+
 dependencies {
   ext {
     graphQLSpringVersion = "3.4.0"
