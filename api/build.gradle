@@ -25,7 +25,7 @@ apply plugin: 'org.springframework.boot'
 apply from: 'dotenv.gradle'
 
 bootRun() {
-  systemProperties << dotenv
+  environment << dotenv
 }
 
 dependencies {
