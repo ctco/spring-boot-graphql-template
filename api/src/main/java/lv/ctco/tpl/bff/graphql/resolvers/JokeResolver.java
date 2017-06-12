@@ -22,6 +22,7 @@ public class JokeResolver {
         JokeValueModel jokeValue = response.getValue();
         return new Joke(
             jokeValue.getJoke(),
+            jokeValue.getId(),
             jokeValue.getCategories().stream()
                 .map(String::toUpperCase)
                 .map(JokeCategory::valueOf)
