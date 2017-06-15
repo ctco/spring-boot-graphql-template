@@ -24,7 +24,7 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
   ext {
-    graphQLSpringVersion = "3.4.0"
+    graphQLSpringVersion = "3.4.1"
     graphQLToolsVersion = "3.0.2"
     feignVersion = '8.18.0'
     lombokVersion = '1.16.16'
