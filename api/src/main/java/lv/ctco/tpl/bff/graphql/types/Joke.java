@@ -10,5 +10,6 @@ import java.util.List;
 public class Joke {
 
     private String text;
+    private String id;
     private List<JokeCategory> categories;
 }

@@ -13,7 +13,12 @@ public class Query implements GraphQLRootResolver {
     @Autowired
     private JokeResolver jokeResolver;
 
-    public Joke joke(JokeCategory category) {
-        return jokeResolver.getJoke(category);
+    public Joke jokeByCategory(JokeCategory category) {
+        return jokeResolver.getJokeByCategory(category);
+
+    }
+
+    public Joke jokeById(String id) {
+        return jokeResolver.getJokeById(id);
     }
 }

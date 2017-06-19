@@ -15,6 +15,11 @@ public interface ICNDB {
         @Param(value = "category", expander = CategoryExpander.class) JokeCategory category
     );
 
+    @RequestLine(value = "GET /jokes/{id}")
+    JokeResponseModel getJokeById(
+        @Param(value = "id") String id
+    );
+
     class CategoryExpander implements Param.Expander {
         @Override
         public String expand(Object value) {
