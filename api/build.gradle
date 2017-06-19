@@ -44,6 +44,7 @@ dependencies {
   compile 'org.springframework.boot:spring-boot-starter-web'
   compile 'org.springframework.boot:spring-boot-starter-undertow'
   compile 'org.springframework.boot:spring-boot-devtools'
+  compile 'org.springframework.boot:spring-boot-starter-actuator'
 
   // GraphQL
   compile "com.graphql-java:graphql-spring-boot-starter:${graphQLSpringVersion}"
