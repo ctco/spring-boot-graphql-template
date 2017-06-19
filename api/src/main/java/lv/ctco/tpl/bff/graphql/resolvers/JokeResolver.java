@@ -16,10 +16,20 @@ public class JokeResolver {
     @Autowired
     private ICNDB icndb;
 
-    public Joke getJoke(JokeCategory category) {
+    public Joke getJokeByCategory(JokeCategory category) {
         JokeResponseModel response = category != null ? icndb.getRandomJokeByCategory(category)
                                                       : icndb.getRandomJoke();
         JokeValueModel jokeValue = response.getValue();
+        return mapToJoke(jokeValue);
+    }
+
+    public Joke getJokeById(String id) {
+        JokeResponseModel response = icndb.getJokeById(id);
+        JokeValueModel jokeValue = response.getValue();
+        return mapToJoke(jokeValue);
+    }
+
+    private Joke mapToJoke(JokeValueModel jokeValue) {
         return new Joke(
             jokeValue.getJoke(),
             jokeValue.getId(),

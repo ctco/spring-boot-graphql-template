@@ -1,5 +1,6 @@
 type Query {
-  joke(category: JokeCategory): Joke,
+  jokeByCategory(category: JokeCategory): Joke,
+  jokeById(id: String!): Joke,
 }
 
 type Joke {
