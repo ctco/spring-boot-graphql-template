@@ -1,11 +1,15 @@
 [![Build Status](https://travis-ci.org/ctco-dev/spring-boot-graphql-template.svg?branch=master)](https://travis-ci.org/ctco-dev/spring-boot-graphql-template)
+
 # spring-boot-graphql-template
 
 Spring Boot, GraphQL template project with batteries included.
 
 ## Features
-
-> What can it do?
+​
+- Type safe Configuration with [dotenv](https://12factor.net/config)
+  - Logging level, e.g. `LOGGING_LEVEL_feign=DEBUG`
+  - App properties, e.g. `APP_DEPENDENCY_API_HOST=example.com`
+  - See [Spring Boot documentation on relaxed property binding](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-relaxed-binding)
 
 ## Required Software
 - JDK 1.8
@@ -27,7 +31,9 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Develop
 
-`$ gradlew bootRun`
+1. Create top level `.env` file and add required [key-values](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html)
+
+2. `$ gradlew bootRun`
 
 ## Test
 
