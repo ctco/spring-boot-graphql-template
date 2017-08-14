@@ -33,6 +33,12 @@ Spring Boot, GraphQL template project with batteries included.
 
 1. Create top level `.env` file and add required [key-values](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html)
 
+e.g.:
+```
+APP_ICNDB_URL=https://api.icndb.com
+LOGGING_LEVEL_feign=DEBUGAPP_ICNDB_URL=https://api.icndb.com
+```
+
 2. `$ gradlew bootRun`
 
 ## Test
