@@ -36,7 +36,7 @@ Spring Boot, GraphQL template project with batteries included.
 e.g.:
 ```
 APP_ICNDB_URL=https://api.icndb.com
-LOGGING_LEVEL_feign=DEBUGAPP_ICNDB_URL=https://api.icndb.com
+LOGGING_LEVEL_feign=DEBUG
 ```
 
 2. `$ gradlew bootRun`
