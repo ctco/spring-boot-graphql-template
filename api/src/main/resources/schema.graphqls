@@ -1,5 +1,5 @@
 type Query {
-  jokeByCategory(category: JokeCategory): Joke,
+  jokeByCategory(category: JokeCategoryInput = {category: NERDY}): Joke,
   jokeById(id: String!): Joke,
 }
 
@@ -7,6 +7,10 @@ type Joke {
   id: String!,
   text: String!,
   categories: [JokeCategory],
+}
+
+input JokeCategoryInput {
+  category: JokeCategory!
 }
 
 enum JokeCategory {
