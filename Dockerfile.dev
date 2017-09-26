@@ -1,0 +1,12 @@
+FROM gradle:4.1-jdk8
+
+ENV HOME /home/gradle
+
+RUN mkdir -p $HOME/app \
+    && cd $HOME/app
+WORKDIR $HOME/app
+
+COPY .env .
+COPY settings.gradle .
+
+CMD ["gradle", "bootRun"]
