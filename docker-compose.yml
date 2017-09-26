@@ -1,12 +1,13 @@
 version: "3"
 services:
   spring-boot-graphql-template:
+    command: bootRun
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - $HOME/.gradle/caches:/home/gradle/.gradle/caches
-      - ${PWD}/api:/home/gradle/app/api
+      - $HOME/.gradle/caches:/opt/.gradle/caches
+      - ${PWD}/api:/opt/app/api
     ports:
       - "8080:8080"
       - "5005:5005"
