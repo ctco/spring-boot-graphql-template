@@ -1,21 +1,38 @@
-FROM gradle:4.1-jdk8
+# Building the image
+FROM gradle:4.1-jdk8-alpine as build
 
-ENV HOME /home/gradle
-
-RUN mkdir -p $HOME/app \
-    && cd $HOME/app
-
-WORKDIR $HOME/app
-
+# Gradle image creates a 'gradle' user, so fallback to 'root' to do initial setup
 USER root
 
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
+
+COPY .env .
 COPY settings.gradle .
 COPY api ./api
 
-RUN chown -R gradle $HOME/app
+# Assemble artifact
+RUN gradle clean build
 
-USER gradle
+
+# Run the application in a smil container
+FROM openjdk:8-jre-alpine as runtime
+
+RUN mkdir -p /opt/app
+
+WORKDIR /opt/app
+
+# Take artifact from previous step
+COPY --from=build /opt/app/api/build/libs/api.jar .
+
+# Create new user to run application on behalf of
+RUN addgroup -S -g 1001 app \
+	&& adduser -D -S -G app -u 1001 -s /bin/ash app \
+    && chown -R app:app /opt/app
+
+USER app
 
 EXPOSE 8080
 
-CMD ["gradle", "bootRun"]
+# Run as plain jar file
+CMD ["java", "-jar", "api.jar"]
