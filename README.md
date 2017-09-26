@@ -60,7 +60,14 @@ Run remote debugger from IDE. Debug port is 5005
 
 ## Build
 
-`$ gradlew buld`
+- Gradle: `$ gradlew buld`
+- Docker: `$ docker build -t spring-boot-graphql-template .`
+
+## Run productive
+
+Assuming that the Docker image is already built on the previous step
+
+- Docker (add `-d` to run in daemon mode): `$ docker run -e 'APP_ICNDB_URL=https://api.icndb.com' -p 8080:8080 spring-boot-graphql-template`
 
 ## Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
