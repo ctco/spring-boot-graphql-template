@@ -4,22 +4,14 @@ FROM gradle:4.1-jdk8-alpine
 USER root
 
 RUN mkdir -p /opt/app \
-    && mkdir -p /opt/.gradle \
-    && addgroup -S -g 1001 boot \
-    && adduser -D -S -G boot -u 1001 -s /bin/ash boot \
-    && chown -R boot:boot /opt/app \
-    && chown -R boot:boot /opt/.gradle
+    && mkdir -p /opt/.gradle
 
 WORKDIR /opt/app
 
 COPY .env .
 COPY settings.gradle .
 
-# Run the build on behalf of non-root 'boot' user
-USER boot
-
 # Release gradle caches if any
 RUN find /opt/.gradle -type f -name "*.lock" | while read f; do rm $f; done
 
-# Using gradle home where 'boot' user has full access to
 ENTRYPOINT ["gradle", "-g", "/opt/.gradle"]

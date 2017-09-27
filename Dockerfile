@@ -7,7 +7,6 @@ USER root
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
 
-COPY .env .
 COPY settings.gradle .
 COPY api ./api
 
@@ -15,7 +14,7 @@ COPY api ./api
 RUN gradle clean build
 
 
-# Run the application in a smil container
+# Run the application in a small container
 FROM openjdk:8-jre-alpine as runtime
 
 RUN mkdir -p /opt/app
