@@ -27,7 +27,7 @@ COPY --from=build /opt/app/api/build/libs/api.jar .
 
 # Create new user to run application on behalf of
 RUN addgroup -S -g 1001 app \
-	&& adduser -D -S -G app -u 1001 -s /bin/ash app \
+    && adduser -D -S -G app -u 1001 -s /bin/ash app \
     && chown -R app:app /opt/app
 
 USER app
