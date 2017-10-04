@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    springBootVersion = '1.5.6.RELEASE'
+    springBootVersion = '1.5.7.RELEASE'
   }
 
   repositories {
@@ -30,8 +30,8 @@ bootRun() {
 
 dependencies {
   ext {
-    graphQLSpringVersion = '3.8.0'
-    graphQLToolsVersion = '4.1.0'
+    graphQLSpringVersion = "3.9.2"
+    graphQLToolsVersion = "4.1.2"
     feignVersion = '8.18.0'
     lombokVersion = '1.16.16'
   }
