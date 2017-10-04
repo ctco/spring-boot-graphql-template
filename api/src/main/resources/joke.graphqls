@@ -1,0 +1,30 @@
+extend type Query {
+  # Joke Queries
+  jokes: JokeQuery
+}
+
+type JokeQuery {
+  # Find joke by category
+  jokeByCategory(request: JokeCategoryInput): Joke
+  # Find joke by id
+  jokeById(id: String!): Joke
+}
+
+input JokeCategoryInput {
+  # Category
+  category: JokeCategory!
+}
+
+type Joke {
+  # ID
+  id: String!
+  # text of a joke
+  text: String!
+  # Applicable categories
+  categories: [JokeCategory]
+}
+
+enum JokeCategory {
+  NERDY
+  EXPLICIT
+}

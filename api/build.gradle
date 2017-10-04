@@ -1,8 +1,8 @@
 buildscript {
   ext {
-    springBootVersion = '1.5.4.RELEASE'
+    springBootVersion = '1.5.7.RELEASE'
   }
-  
+
   repositories {
     mavenCentral()
   }
@@ -13,9 +13,9 @@ buildscript {
 }
 
 repositories {
-   mavenCentral()
+  mavenCentral()
 }
-    
+
 apply plugin: 'java'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,8 +30,8 @@ bootRun() {
 
 dependencies {
   ext {
-    graphQLSpringVersion = "3.5.0"
-    graphQLToolsVersion = "3.0.2"
+    graphQLSpringVersion = "3.9.2"
+    graphQLToolsVersion = "4.1.2"
     feignVersion = '8.18.0'
     lombokVersion = '1.16.16'
   }

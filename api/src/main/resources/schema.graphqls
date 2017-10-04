@@ -1,15 +1,3 @@
 type Query {
-  jokeByCategory(category: JokeCategory): Joke,
-  jokeById(id: String!): Joke,
-}
-
-type Joke {
-  id: String!,
-  text: String!,
-  categories: [JokeCategory],
-}
-
-enum JokeCategory {
-  NERDY,
-  EXPLICIT,
+  ping: String
 }

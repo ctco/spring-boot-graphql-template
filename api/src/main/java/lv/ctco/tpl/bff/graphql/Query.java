@@ -1,24 +1,17 @@
 package lv.ctco.tpl.bff.graphql;
 
-import com.coxautodev.graphql.tools.GraphQLRootResolver;
-import lv.ctco.tpl.bff.graphql.resolvers.JokeResolver;
-import lv.ctco.tpl.bff.graphql.types.Joke;
-import lv.ctco.tpl.bff.graphql.types.JokeCategory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import lv.ctco.tpl.bff.graphql.resolvers.JokeQuery;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Query implements GraphQLRootResolver {
+public class Query implements GraphQLQueryResolver {
 
-    @Autowired
-    private JokeResolver jokeResolver;
-
-    public Joke jokeByCategory(JokeCategory category) {
-        return jokeResolver.getJokeByCategory(category);
-
+    public String ping() {
+        return "pong";
     }
 
-    public Joke jokeById(String id) {
-        return jokeResolver.getJokeById(id);
+    public JokeQuery jokes() {
+        return new JokeQuery();
     }
 }
