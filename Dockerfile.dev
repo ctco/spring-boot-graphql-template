@@ -3,15 +3,18 @@ FROM gradle:4.1-jdk8-alpine
 # Gradle image creates a 'gradle' user, so fallback to 'root' to do initial setup
 USER root
 
-RUN mkdir -p /opt/app \
-    && mkdir -p /opt/.gradle
+ENV GRADLE_USER_HOME /opt
 
+RUN mkdir -p /opt/app
 WORKDIR /opt/app
 
-COPY .env .
-COPY settings.gradle .
+# Copy gradle build scripts
+COPY .env settings.gradle ./
+COPY api/build.gradle api/dotenv.gradle ./api/
 
-# Release gradle caches if any
-RUN find /opt/.gradle -type f -name "*.lock" | while read f; do rm $f; done
+# Fetch dependencies - do it before copying the source code to cache the layer
+RUN ["gradle", "--no-daemon"]
 
-ENTRYPOINT ["gradle", "-g", "/opt/.gradle"]
+COPY api api
+
+ENTRYPOINT ["gradle", "--no-daemon"]

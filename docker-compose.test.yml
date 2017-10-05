@@ -6,5 +6,4 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - $HOME/.gradle/caches:/opt/.gradle/caches
       - ${PWD}/api:/opt/app/api
