@@ -6,7 +6,7 @@ import java.util.List;
 
 @Getter
 public class JokeValueModel {
-    String id;
-    String joke;
-    List<String> categories;
+    private String id;
+    private String joke;
+    private List<String> categories;
 }

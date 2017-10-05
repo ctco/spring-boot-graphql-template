@@ -4,6 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class JokeResponseModel {
-    String type;
-    JokeValueModel value;
+    private String type;
+    private JokeValueModel value;
 }

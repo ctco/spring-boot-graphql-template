@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+    <module name="SuppressionFilter">
+        <property name="file" value="${configDir}/suppressions.xml"/>
+    </module>
+
+    <module name="Header">
+        <property name="header" value="Copyright Swiss Reinsurance Company, Mythenquai 50/60, CH 8022 Zurich. All rights reserved."/>
+        <property name="ignoreLines" value="1"/>
+        <property name="fileExtensions" value="java"/>
+    </module>
+
+    <module name="Translation"/>
+    <module name="FileLength">
+        <property name="max" value="300"/>
+    </module>
+    <module name="FileTabCharacter"/>
+    <module name="RegexpSingleline">
+        <property name="format" value="\s+$"/>
+        <property name="minimum" value="0"/>
+        <property name="maximum" value="0"/>
+        <property name="message" value="Line has trailing spaces."/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+        <module name="LineLength">
+            <property name="max" value="145"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="20"/>
+        </module>
+        <module name="ParameterNumber"/>
+        <module name="EmptyForIteratorPad"/>
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="OperatorWrap"/>
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
+        <module name="AvoidNestedBlocks"/>
+        <module name="EmptyBlock"/>
+        <module name="LeftCurly"/>
+        <module name="NeedBraces"/>
+        <module name="RightCurly"/>
+        <module name="EmptyStatement"/>
+        <module name="EqualsHashCode"/>
+        <module name="IllegalInstantiation"/>
+        <module name="InnerAssignment"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="FinalClass"/>
+        <module name="VisibilityModifier"/>
+        <module name="ArrayTypeStyle"/>
+        <module name="TodoComment"/>
+        <module name="UpperEll"/>
+        <module name="AvoidStarImport"/>
+        <module name="EmptyLineSeparator">
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+            <property name="allowMultipleEmptyLines" value="false"/>
+        </module>
+        <module name="BooleanExpressionComplexity"/>
+        <module name="ClassFanOutComplexity"/>
+        <module name="DeclarationOrder"/>
+        <module name="EmptyBlock"/>
+        <module name="MagicNumber">
+            <property name="ignoreFieldDeclaration" value="true"/>
+        </module>
+        <module name="MultipleStringLiterals">
+            <property name="ignoreOccurrenceContext" value="ENUM_CONSTANT_DEF,ANNOTATION"/>
+        </module>
+        <module name="NestedForDepth"/>
+        <module name="NestedIfDepth">
+            <property name="max" value="2"/>
+        </module>
+        <module name="NestedTryDepth"/>
+        <module name="ParameterNumber">
+            <property name="max" value="3"/>
+        </module>
+        <module name="EqualsAvoidNull"/>
+        <module name="OverloadMethodsDeclarationOrder"/>
+        <module name="UnnecessaryParentheses"/>
+        <module name="ExecutableStatementCount">
+            <property name="max" value="20"/>
+        </module>
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+        </module>
+
+    </module>
+
+</module>
