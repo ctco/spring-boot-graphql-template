@@ -1,0 +1,20 @@
+FROM gradle:4.1-jdk8-alpine
+
+# Gradle image creates a 'gradle' user, so fallback to 'root' to do initial setup
+USER root
+
+ENV GRADLE_USER_HOME /opt
+
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
+
+# Copy gradle build scripts
+COPY .env settings.gradle ./
+COPY api/build.gradle api/dotenv.gradle ./api/
+
+# Fetch dependencies - do it before copying the source code to cache the layer
+RUN ["gradle", "--no-daemon"]
+
+COPY api api
+
+ENTRYPOINT ["gradle", "--no-daemon"]

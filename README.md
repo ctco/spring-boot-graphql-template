@@ -10,9 +10,12 @@ Spring Boot, GraphQL template project with batteries included.
   - Logging level, e.g. `LOGGING_LEVEL_feign=DEBUG`
   - App properties, e.g. `APP_DEPENDENCY_API_HOST=example.com`
   - See [Spring Boot documentation on relaxed property binding](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-relaxed-binding)
+- Docker :whale: configuration for production deployment, development and test
+  - Remote debugging for development mode
 
 ## Required Software
 - JDK 1.8
+- Or docker + docker-compose
 
 ### Lombok
 
@@ -31,7 +34,9 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Develop
 
-1. Create top level `.env` file and add required [key-values](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html)
+1. Create `.env` file 
+
+Create top level `.env` file and add required [key-values](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html)
 
 e.g.:
 ```
@@ -39,15 +44,30 @@ APP_ICNDB_URL=https://api.icndb.com
 LOGGING_LEVEL_feign=DEBUG
 ```
 
-2. `$ gradlew bootRun`
+2.1. Run
+
+- Gradle: `$ gradlew bootRun`
+- Docker: `$ docker-compose up` (or `$ docker-compose up --build` if image should be rebuilt)
+
+2.2. Debug
+
+Run remote debugger from IDE. Debug port is 5005
 
 ## Test
 
-`$ gradlew test`
+- Gradle: `$ gradlew test`
+- Docker: `$ docker-compose -f docker-compose.test.yml up --build`
 
 ## Build
 
-`$ gradlew buld`
+- Gradle: `$ gradlew buld`
+- Docker: `$ docker build -t spring-boot-graphql-template .`
+
+## Run productive
+
+Assuming that the Docker image is already built on the previous step
+
+- Docker (add `-d` to run in daemon mode): `$ docker run -e 'APP_ICNDB_URL=https://api.icndb.com' -p 8080:8080 spring-boot-graphql-template`
 
 ## Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
@@ -56,6 +76,8 @@ LOGGING_LEVEL_feign=DEBUG
 - [GraphQL](http://graphql.org/learn/) : API query runtime
   - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)
   - [GraphQL Java Tools](https://github.com/graphql-java/graphql-java-tools)
+- Docker
+  - [Home Page](https://www.docker.com)
   
 ## Cloud Deployment  
 
