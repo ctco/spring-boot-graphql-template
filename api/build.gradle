@@ -25,27 +25,16 @@ apply plugin: 'org.springframework.boot'
 apply from: 'dotenv.gradle'
 
 apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-pmdTest.enabled = false
-bootRun.dependsOn.add(pmdMain)
-bootRun.dependsOn.add(checkstyleMain)
+
+build.dependsOn.add(checkstyleMain)
 
 bootRun() {
   environment << dotenv
 }
 
 checkstyle {
-  def dir = "${parent.projectDir}/code-analysis/check-style"
   toolVersion = '8.2'
-  configProperties.configDir = dir
-  configFile = file("$dir/check-style.xml")
-  sourceSets = [] // used to skip tests
-}
-
-pmd {
-  toolVersion = '5.8.1'
-  consoleOutput = true
-  ruleSetFiles = files("${parent.projectDir}/code-analysis/pmd/pmd.xml")
+  configFile = file("${parent.projectDir}/config/checkstyle/checkstyle.xml")
 }
 
 dependencies {

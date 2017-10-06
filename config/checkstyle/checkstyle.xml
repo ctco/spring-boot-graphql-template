@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+
+    <module name="FileLength">
+        <property name="max" value="300"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!--Lengths-->
+        <module name="LineLength">
+            <property name="max" value="145"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="20"/>
+        </module>
+        <module name="ExecutableStatementCount">
+            <property name="max" value="20"/>
+        </module>
+
+        <!--Complexity-->
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="BooleanExpressionComplexity"/>
+        <module name="NestedForDepth"/>
+        <module name="NestedIfDepth">
+            <property name="max" value="2"/>
+        </module>
+        <module name="ParameterNumber">
+            <property name="max" value="3"/>
+        </module>
+
+        <!--Validation-->
+        <module name="EqualsHashCode"/>
+        <module name="EqualsAvoidNull"/>
+        <module name="UnnecessaryParentheses"/>
+        <module name="MagicNumber">
+            <property name="ignoreFieldDeclaration" value="true"/>
+        </module>
+        <module name="MultipleStringLiterals">
+            <property name="ignoreOccurrenceContext" value="ENUM_CONSTANT_DEF,ANNOTATION"/>
+        </module>
+        <module name="EmptyLineSeparator">
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+            <property name="allowMultipleEmptyLines" value="false"/>
+        </module>
+
+        <!--Imports-->
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+
+        <!--Namings-->
+        <module name="ConstantName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+
+        <!--Paddings-->
+        <module name="MethodParamPad"/>
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+
+        <!--Order-->
+        <module name="ModifierOrder"/>
+        <module name="DeclarationOrder"/>
+        <module name="OverloadMethodsDeclarationOrder"/>
+
+    </module>
+
+</module>

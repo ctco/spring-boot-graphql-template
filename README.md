@@ -33,13 +33,13 @@ Spring Boot, GraphQL template project with batteries included.
 
 #### IntelliJ
 
-- Edit configurations > "Application" > Add task in "Before launch" section "checkstyleMain pmdMain" and place it as first
-- Additionally you can download "CheckStyle plugin". Then open Settings > Other Settings > Checkstyle. Add path to check-style.xml file 
-  and provide link to check-style folder in "${configDir}". This will display errors in editor, but it wont affect build/run. 
+- You can download "CheckStyle plugin". Then open Settings > Other Settings > Checkstyle. Add path to check-style.xml file 
+  and provide link to check-style folder in "${configDir}". This will display errors in editor and it wont affect build/run. 
 
 #### Gradle
 
-- As default behaviour it is configured to call "checkstyleMain pmdMain" before "bootRun" task is executed
+- As default behaviour it is configured to call "checkstyleMain pmdMain" before "build" task is executed, which does not prevent
+ development (application start up and bootrun)
 
 ## Develop
 
