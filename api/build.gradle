@@ -34,7 +34,6 @@ bootRun() {
 
 checkstyle {
   toolVersion = '8.2'
-  configFile = file("${parent.projectDir}/config/checkstyle/checkstyle.xml")
 }
 
 dependencies {
