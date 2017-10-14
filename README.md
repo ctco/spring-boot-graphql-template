@@ -32,6 +32,18 @@ Spring Boot, GraphQL template project with batteries included.
 
 - Download and install GraphQLJs [plugin](https://plugins.jetbrains.com/plugin/8097-js-graphql)
 
+### Style check
+
+#### IntelliJ
+
+- You can download "CheckStyle plugin". Then open Settings > Other Settings > Checkstyle. Add path to check-style.xml file 
+  and provide link to check-style folder in "${configDir}". This will display errors in editor and it wont affect build/run. 
+
+#### Gradle
+
+- As default behaviour it is configured to call "checkstyleMain pmdMain" before "build" task is executed, which does not prevent
+ development (application start up and bootrun)
+
 ## Develop
 
 1. Create `.env` file 

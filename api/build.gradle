@@ -24,9 +24,17 @@ apply plugin: 'org.springframework.boot'
 
 apply from: 'dotenv.gradle'
 
+apply plugin: 'checkstyle'
+
+build.dependsOn.add(checkstyleMain)
+
 bootRun() {
   environment << dotenv
   jvmArgs = ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005']
+}
+
+checkstyle {
+  toolVersion = '8.2'
 }
 
 dependencies {
