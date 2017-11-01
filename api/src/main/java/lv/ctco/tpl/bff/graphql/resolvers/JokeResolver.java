@@ -9,7 +9,7 @@ import lv.ctco.tpl.bff.integration.icndb.jokes.JokeResponseModel;
 import lv.ctco.tpl.bff.integration.icndb.jokes.JokeValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import rx.Observable;
+import rx.Single;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -24,16 +24,14 @@ public class JokeResolver implements GraphQLResolver<JokeQuery> {
 
     public CompletableFuture<Joke> getJokeByCategory(JokeQuery root, JokeCategoryInput request) {
         JokeCategory category = request.getCategory();
-        Observable<JokeResponseModel> searchCommand = category != null ? icndb.getRandomJokeByCategory(category) : icndb.getRandomJoke();
+        Single<JokeResponseModel> searchCommand = category != null ? icndb.getRandomJokeByCategory(category) : icndb.getRandomJoke();
         return toCompletableFuture(searchCommand
-            .map(jokeValue -> mapToJoke(jokeValue.getValue()))
-            .toSingle());
+            .map(jokeValue -> mapToJoke(jokeValue.getValue())));
     }
 
     public CompletableFuture<Joke> getJokeById(JokeQuery root, String id) {
         return toCompletableFuture(icndb.getJokeById(id)
-            .map(response -> mapToJoke(response.getValue()))
-            .toSingle());
+            .map(response -> mapToJoke(response.getValue())));
     }
 
     private Joke mapToJoke(JokeValueModel jokeValue) {
