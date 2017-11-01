@@ -67,10 +67,14 @@ dependencies {
   // Lombok
   compile "org.projectlombok:lombok:${lombokVersion}"
 
+  // Converters
+  compile "net.javacrumbs.future-converter:future-converter-rxjava-java8:1.1.0"
+
   // Feign
   compile "com.netflix.feign:feign-core:${feignVersion}"
   compile "com.netflix.feign:feign-slf4j:${feignVersion}"
   compile "com.netflix.feign:feign-jackson:${feignVersion}"
+  compile "com.netflix.feign:feign-hystrix:${feignVersion}"
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
