@@ -1,7 +1,6 @@
 package lv.ctco.tpl.bff.graphql.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import com.netflix.hystrix.HystrixCommand;
 import lv.ctco.tpl.bff.graphql.types.Joke;
 import lv.ctco.tpl.bff.graphql.types.JokeCategory;
 import lv.ctco.tpl.bff.graphql.types.JokeCategoryInput;
@@ -10,6 +9,7 @@ import lv.ctco.tpl.bff.integration.icndb.jokes.JokeResponseModel;
 import lv.ctco.tpl.bff.integration.icndb.jokes.JokeValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import rx.Observable;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -24,16 +24,14 @@ public class JokeResolver implements GraphQLResolver<JokeQuery> {
 
     public CompletableFuture<Joke> getJokeByCategory(JokeQuery root, JokeCategoryInput request) {
         JokeCategory category = request.getCategory();
-        HystrixCommand<JokeResponseModel> searchCommand = category != null ? icndb.getRandomJokeByCategory(category) : icndb.getRandomJoke();
+        Observable<JokeResponseModel> searchCommand = category != null ? icndb.getRandomJokeByCategory(category) : icndb.getRandomJoke();
         return toCompletableFuture(searchCommand
-            .toObservable()
             .map(jokeValue -> mapToJoke(jokeValue.getValue()))
             .toSingle());
     }
 
     public CompletableFuture<Joke> getJokeById(JokeQuery root, String id) {
         return toCompletableFuture(icndb.getJokeById(id)
-            .toObservable()
             .map(response -> mapToJoke(response.getValue()))
             .toSingle());
     }
