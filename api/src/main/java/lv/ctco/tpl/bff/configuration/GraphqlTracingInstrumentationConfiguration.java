@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 @Component
-@Slf4j
+@Slf4j(topic = "graphql")
 public class GraphqlTracingInstrumentationConfiguration extends TracingInstrumentation {
 
     private static final String DURATION = "duration";
