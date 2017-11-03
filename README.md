@@ -54,6 +54,7 @@ e.g.:
 ```
 APP_ICNDB_URL=https://api.icndb.com
 LOGGING_LEVEL_feign=DEBUG
+LOGGING_LEVEL_graphql=DEBUG
 ```
 
 2.1. Run
