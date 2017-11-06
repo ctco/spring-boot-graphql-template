@@ -1,7 +1,7 @@
 package lv.ctco.tpl.bff.configuration;
 
-import feign.Feign;
 import feign.Logger;
+import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
 import feign.slf4j.Slf4jLogger;
 import lv.ctco.tpl.bff.integration.icndb.ICNDB;
@@ -17,8 +17,8 @@ public class FeignConfiguration {
             .target(ICNDB.class, props.getIcndbUrl());
     }
 
-    private Feign.Builder baseBuilder() {
-        return Feign.builder()
+    private HystrixFeign.Builder baseBuilder() {
+        return HystrixFeign.builder()
             .decoder(new JacksonDecoder())
             .logger(new Slf4jLogger())
             .logLevel(Logger.Level.FULL);

@@ -9,8 +9,12 @@ import lv.ctco.tpl.bff.integration.icndb.jokes.JokeResponseModel;
 import lv.ctco.tpl.bff.integration.icndb.jokes.JokeValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import rx.Single;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
+
+import static net.javacrumbs.futureconverter.java8rx.FutureConverter.toCompletableFuture;
 
 @Component
 public class JokeResolver implements GraphQLResolver<JokeQuery> {
@@ -18,18 +22,16 @@ public class JokeResolver implements GraphQLResolver<JokeQuery> {
     @Autowired
     private ICNDB icndb;
 
-    public Joke getJokeByCategory(JokeQuery root, JokeCategoryInput request) {
+    public CompletableFuture<Joke> getJokeByCategory(JokeQuery root, JokeCategoryInput request) {
         JokeCategory category = request.getCategory();
-        JokeResponseModel response = category != null ? icndb.getRandomJokeByCategory(category)
-            : icndb.getRandomJoke();
-        JokeValueModel jokeValue = response.getValue();
-        return mapToJoke(jokeValue);
+        Single<JokeResponseModel> searchCommand = category != null ? icndb.getRandomJokeByCategory(category) : icndb.getRandomJoke();
+        return toCompletableFuture(searchCommand
+            .map(jokeValue -> mapToJoke(jokeValue.getValue())));
     }
 
-    public Joke getJokeById(JokeQuery root, String id) {
-        JokeResponseModel response = icndb.getJokeById(id);
-        JokeValueModel jokeValue = response.getValue();
-        return mapToJoke(jokeValue);
+    public CompletableFuture<Joke> getJokeById(JokeQuery root, String id) {
+        return toCompletableFuture(icndb.getJokeById(id)
+            .map(response -> mapToJoke(response.getValue())));
     }
 
     private Joke mapToJoke(JokeValueModel jokeValue) {
