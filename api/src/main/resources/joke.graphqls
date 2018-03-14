@@ -4,10 +4,12 @@ extend type Query {
 }
 
 type JokeQuery {
-  # Find joke by category
-  jokeByCategory(request: JokeCategoryInput): Joke
+  # Find random joke limited to category
+  randomJokeLimitedToCategory(request: JokeCategoryInput): Joke
   # Find joke by id
   jokeById(id: String!): Joke
+  # Find random joke
+  randomJoke: Joke
 }
 
 input JokeCategoryInput {

@@ -6,4 +6,5 @@ public class JokeQuery {
 
     private Joke jokeByCategory;
     private Joke jokeById;
+    private Joke randomJoke;
 }
