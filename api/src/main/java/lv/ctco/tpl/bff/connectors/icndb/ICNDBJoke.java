@@ -5,6 +5,7 @@ import java.util.List;
 
 @Getter
 public class ICNDBJoke {
+
     String id;
     String joke;
     List<String> categories;

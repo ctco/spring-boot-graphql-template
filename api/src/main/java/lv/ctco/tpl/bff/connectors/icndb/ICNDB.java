@@ -10,7 +10,7 @@ public interface ICNDB {
     ICNDBJokeEnvelop getRandomJoke();
 
     @RequestLine(value = "GET /jokes/random?limitTo={category}", decodeSlash = false)
-    ICNDBJokeEnvelop getRandomJokeLimitedToCategory (
+    ICNDBJokeEnvelop getRandomJokeLimitedToCategory(
         @Param(value = "category", expander = CategoryExpander.class) JokeCategory category
     );
 
