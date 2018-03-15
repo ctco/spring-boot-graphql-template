@@ -7,15 +7,15 @@ import lv.ctco.tpl.bff.graphql.types.JokeCategory;
 public interface ICNDB {
 
     @RequestLine("GET /jokes/random")
-    ICNDBJokeEnvelop getRandomJoke();
+    ICNDBJokeEnvelope getRandomJoke();
 
     @RequestLine(value = "GET /jokes/random?limitTo={category}", decodeSlash = false)
-    ICNDBJokeEnvelop getRandomJokeLimitedToCategory(
+    ICNDBJokeEnvelope getRandomJokeLimitedToCategory(
         @Param(value = "category", expander = CategoryExpander.class) JokeCategory category
     );
 
     @RequestLine(value = "GET /jokes/{id}")
-    ICNDBJokeEnvelop getJokeById(
+    ICNDBJokeEnvelope getJokeById(
         @Param(value = "id") String id
     );
 

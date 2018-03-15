@@ -2,7 +2,7 @@ package lv.ctco.tpl.bff.graphql.models;
 
 import lv.ctco.tpl.bff.connectors.icndb.ICNDB;
 import lv.ctco.tpl.bff.connectors.icndb.ICNDBJoke;
-import lv.ctco.tpl.bff.connectors.icndb.ICNDBJokeEnvelop;
+import lv.ctco.tpl.bff.connectors.icndb.ICNDBJokeEnvelope;
 import lv.ctco.tpl.bff.graphql.types.Joke;
 import lv.ctco.tpl.bff.graphql.types.JokeCategory;
 import lv.ctco.tpl.bff.graphql.types.JokeCategoryInput;
@@ -12,27 +12,26 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 
 @Component
-public class JokeModels {
+public class JokeModel {
 
     @Autowired
     private ICNDB icndb;
 
     public Joke getRandomJokeLimitedToCategory(JokeCategoryInput request) {
         JokeCategory category = request.getCategory();
-        ICNDBJokeEnvelop icndbJokeEnvelop = category != null ? icndb.getRandomJokeLimitedToCategory(category)
-            : icndb.getRandomJoke();
-        ICNDBJoke icndbJoke = icndbJokeEnvelop.getValue();
+        ICNDBJokeEnvelope icndbJokeEnvelope = icndb.getRandomJokeLimitedToCategory(category);
+        ICNDBJoke icndbJoke = icndbJokeEnvelope.getValue();
         return mapToJoke(icndbJoke);
     }
 
     public Joke getJokeById(String id) {
-        ICNDBJokeEnvelop icndbJokeEnvelop = icndb.getJokeById(id);
-        ICNDBJoke icndbJoke = icndbJokeEnvelop.getValue();
+        ICNDBJokeEnvelope icndbJokeEnvelope = icndb.getJokeById(id);
+        ICNDBJoke icndbJoke = icndbJokeEnvelope.getValue();
         return mapToJoke(icndbJoke);
     }
 
     public Joke getRandomJoke() {
-        ICNDBJokeEnvelop icndbJokeEnvelop = icndb.getRandomJoke();
+        ICNDBJokeEnvelope icndbJokeEnvelop = icndb.getRandomJoke();
         ICNDBJoke icndbJoke = icndbJokeEnvelop.getValue();
         return mapToJoke(icndbJoke);
     }
