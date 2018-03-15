@@ -1,22 +1,21 @@
-package lv.ctco.tpl.bff.integration.icndb;
+package lv.ctco.tpl.bff.connectors.icndb;
 
 import feign.Param;
 import feign.RequestLine;
 import lv.ctco.tpl.bff.graphql.types.JokeCategory;
-import lv.ctco.tpl.bff.integration.icndb.jokes.JokeResponseModel;
 
 public interface ICNDB {
 
     @RequestLine("GET /jokes/random")
-    JokeResponseModel getRandomJoke();
+    ICNDBJokeEnvelope getRandomJoke();
 
     @RequestLine(value = "GET /jokes/random?limitTo={category}", decodeSlash = false)
-    JokeResponseModel getRandomJokeByCategory(
+    ICNDBJokeEnvelope getRandomJokeLimitedToCategory(
         @Param(value = "category", expander = CategoryExpander.class) JokeCategory category
     );
 
     @RequestLine(value = "GET /jokes/{id}")
-    JokeResponseModel getJokeById(
+    ICNDBJokeEnvelope getJokeById(
         @Param(value = "id") String id
     );
 

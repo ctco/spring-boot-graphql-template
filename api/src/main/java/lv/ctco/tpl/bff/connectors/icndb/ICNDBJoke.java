@@ -1,11 +1,11 @@
-package lv.ctco.tpl.bff.integration.icndb.jokes;
+package lv.ctco.tpl.bff.connectors.icndb;
 
 import lombok.Getter;
-
 import java.util.List;
 
 @Getter
-public class JokeValueModel {
+public class ICNDBJoke {
+
     String id;
     String joke;
     List<String> categories;

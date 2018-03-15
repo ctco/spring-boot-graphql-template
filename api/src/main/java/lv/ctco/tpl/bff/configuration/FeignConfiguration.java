@@ -4,7 +4,7 @@ import feign.Feign;
 import feign.Logger;
 import feign.jackson.JacksonDecoder;
 import feign.slf4j.Slf4jLogger;
-import lv.ctco.tpl.bff.integration.icndb.ICNDB;
+import lv.ctco.tpl.bff.connectors.icndb.ICNDB;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
