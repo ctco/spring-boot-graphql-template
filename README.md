@@ -85,7 +85,7 @@ Assuming that the Docker image is already built on the previous step
 ## Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
 - [Feign](https://github.com/OpenFeign/feign) : HTTP Client library
-  - [Feign-Hystrix](https://github.com/OpenFeign/feign/tree/master/hystrix) : wraps Feign's http requests in Hystrix, which enables the Circuit Breaker Pattern. 
+  - [Feign-Hystrix](https://github.com/OpenFeign/feign/tree/master/hystrix) : wraps Feign's http requests in Hystrix, which enables the [Circuit Breaker](https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern) pattern. 
 - [Lombok](https://projectlombok.org/features/index.html) : Utility library for Java language
 - [GraphQL](http://graphql.org/learn/) : API query runtime
   - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)

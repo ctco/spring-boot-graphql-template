@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FeignConfiguration {
 
-    private static final int EXECUTION_TIMEOUT_IN_MILLIS = 2000;
+    private static final int EXECUTION_TIMEOUT_IN_MILLIS = 2_000;
 
     @Bean
     public ICNDB provideICNDB(AppProperties props) {
