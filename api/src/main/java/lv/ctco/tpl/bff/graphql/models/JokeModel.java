@@ -1,5 +1,6 @@
 package lv.ctco.tpl.bff.graphql.models;
 
+import com.netflix.hystrix.HystrixCommand;
 import lv.ctco.tpl.bff.connectors.icndb.ICNDB;
 import lv.ctco.tpl.bff.connectors.icndb.ICNDBJoke;
 import lv.ctco.tpl.bff.connectors.icndb.ICNDBJokeEnvelope;
@@ -19,20 +20,20 @@ public class JokeModel {
 
     public Joke getRandomJokeLimitedToCategory(JokeCategoryInput request) {
         JokeCategory category = request.getCategory();
-        ICNDBJokeEnvelope icndbJokeEnvelope = icndb.getRandomJokeLimitedToCategory(category);
-        ICNDBJoke icndbJoke = icndbJokeEnvelope.getValue();
+        HystrixCommand<ICNDBJokeEnvelope> icndbJokeEnvelopeCommand = icndb.getRandomJokeLimitedToCategory(category);
+        ICNDBJoke icndbJoke = icndbJokeEnvelopeCommand.execute().getValue();
         return mapToJoke(icndbJoke);
     }
 
     public Joke getJokeById(String id) {
-        ICNDBJokeEnvelope icndbJokeEnvelope = icndb.getJokeById(id);
-        ICNDBJoke icndbJoke = icndbJokeEnvelope.getValue();
+        HystrixCommand<ICNDBJokeEnvelope> icndbJokeEnvelopeCommand = icndb.getJokeById(id);
+        ICNDBJoke icndbJoke = icndbJokeEnvelopeCommand.execute().getValue();
         return mapToJoke(icndbJoke);
     }
 
     public Joke getRandomJoke() {
-        ICNDBJokeEnvelope icndbJokeEnvelop = icndb.getRandomJoke();
-        ICNDBJoke icndbJoke = icndbJokeEnvelop.getValue();
+        HystrixCommand<ICNDBJokeEnvelope> icndbJokeEnvelopeCommand = icndb.getRandomJoke();
+        ICNDBJoke icndbJoke = icndbJokeEnvelopeCommand.execute().getValue();
         return mapToJoke(icndbJoke);
     }
 
