@@ -41,19 +41,19 @@ dependencies {
   ext {
     graphQLSpringVersion = "3.9.2"
     graphQLToolsVersion = "4.1.2"
-    feignVersion = '8.18.0'
+    feignVersion = '9.6.0'
     lombokVersion = '1.16.16'
   }
 
   configurations {
-    compile.exclude module: 'spring-boot-starter-tomcat'
+    compile.exclude module: "spring-boot-starter-tomcat"
   }
 
   // Spring Boot starters
-  compile 'org.springframework.boot:spring-boot-starter-web'
-  compile 'org.springframework.boot:spring-boot-starter-undertow'
-  compile 'org.springframework.boot:spring-boot-devtools'
-  compile 'org.springframework.boot:spring-boot-starter-actuator'
+  compile "org.springframework.boot:spring-boot-starter-web"
+  compile "org.springframework.boot:spring-boot-starter-undertow"
+  compile "org.springframework.boot:spring-boot-devtools"
+  compile "org.springframework.boot:spring-boot-starter-actuator"
 
   // GraphQL
   compile "com.graphql-java:graphql-spring-boot-starter:${graphQLSpringVersion}"
@@ -68,9 +68,12 @@ dependencies {
   compile "org.projectlombok:lombok:${lombokVersion}"
 
   // Feign
-  compile "com.netflix.feign:feign-core:${feignVersion}"
-  compile "com.netflix.feign:feign-slf4j:${feignVersion}"
-  compile "com.netflix.feign:feign-jackson:${feignVersion}"
+  compile "io.github.openfeign:feign-core:${feignVersion}"
+  compile "io.github.openfeign:feign-slf4j:${feignVersion}"
+  compile "io.github.openfeign:feign-jackson:${feignVersion}"
+  compile "io.github.openfeign:feign-hystrix:${feignVersion}"
 
-  testCompile 'org.springframework.boot:spring-boot-starter-test'
+  compile "commons-io:commons-io:2.6"
+
+  testCompile "org.springframework.boot:spring-boot-starter-test"
 }
