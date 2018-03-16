@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>${pageTitle}</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <style>
         body {
             height: 100%;
@@ -44,7 +46,7 @@
     function introspectionProvider(introspectionQuery) {
         // This example expects a GraphQL server at the path /graphql.
         // Change this to point wherever you host your GraphQL server.
-        return fetch('/graphql', {
+        return fetch('${graphqlEndpoint}', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
