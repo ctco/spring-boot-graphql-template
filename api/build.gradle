@@ -41,7 +41,7 @@ dependencies {
   ext {
     graphQLSpringVersion = "3.9.2"
     graphQLToolsVersion = "4.1.2"
-    feignVersion = '8.18.0'
+    feignVersion = '9.6.0'
     lombokVersion = '1.16.16'
   }
 
@@ -68,9 +68,10 @@ dependencies {
   compile "org.projectlombok:lombok:${lombokVersion}"
 
   // Feign
-  compile "com.netflix.feign:feign-core:${feignVersion}"
-  compile "com.netflix.feign:feign-slf4j:${feignVersion}"
-  compile "com.netflix.feign:feign-jackson:${feignVersion}"
+  compile "io.github.openfeign:feign-core:${feignVersion}"
+  compile "io.github.openfeign:feign-slf4j:${feignVersion}"
+  compile "io.github.openfeign:feign-jackson:${feignVersion}"
+  compile "io.github.openfeign:feign-hystrix:${feignVersion}"
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
