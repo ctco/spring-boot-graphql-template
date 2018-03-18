@@ -90,6 +90,7 @@ Assuming that the Docker image is already built on the previous step
 - [GraphQL](http://graphql.org/learn/) : API query runtime
   - [GraphQL and GraphiQL Spring Framework Boot Starters](https://github.com/graphql-java/graphql-spring-boot)
   - [GraphQL Java Tools](https://github.com/graphql-java/graphql-java-tools)
+- [GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) : Represent any GraphQL API as an interactive graph. See [Voyager Sample](https://github.com/ctco/spring-boot-graphql-template/blob/master/VOYAGER.md) 
 - Docker
   - [Home Page](https://www.docker.com)
   
