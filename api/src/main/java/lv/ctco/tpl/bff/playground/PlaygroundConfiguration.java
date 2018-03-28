@@ -14,7 +14,7 @@ public class PlaygroundConfiguration {
 
     @Bean
     @ConditionalOnProperty(value = "playground.enabled", havingValue = "true", matchIfMissing = true)
-    PlaygroundController voyagerController() {
+    PlaygroundController playgroundController() {
         return new PlaygroundController();
     }
 }

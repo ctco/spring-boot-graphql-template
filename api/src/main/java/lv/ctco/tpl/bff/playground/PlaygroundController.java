@@ -25,7 +25,7 @@ public class PlaygroundController {
     private String pageTitle;
 
     @RequestMapping(value = "${playground.mapping:/playground}")
-    public void voyager(HttpServletResponse response) throws IOException {
+    public void playground(HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
 
         InputStream inputStream = new ClassPathResource("playground.html").getInputStream();
