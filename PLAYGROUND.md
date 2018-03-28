@@ -9,14 +9,15 @@ Voyager sample contains:
 Requirements:
   * Java 1.8
   * Spring Framework Boot > 1.5.7 (web)
-  * runtime voyager dependencies are loaded from `//cdn.jsdelivr.net`
+  * runtime playground dependencies are loaded from `//cdn.jsdelivr.net`
 
 # Enable GraphQL Playground
 
-GraphQL Playground becomes accessible at the root `/playground`.
+By default, GraphQL Playground becomes accessible at the root `/playground`.
 
-Note that GraphQL server must be available at `/graphql/*` context to be discovered by GraphQL Playground.
+By default, GraphQL server must be available at `/graphql/*` context to be discovered by GraphQL Playground.
 
+GraphQL Playground root and GraphQL server context could be overwritten.  
 Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 ```yaml
 playground:
