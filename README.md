@@ -42,20 +42,12 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Develop
 
-1. `application.ymp` by default contains url to icndb endpoint. In addition, log levels could be configured, e.g.:
-```
-logging:
-  level:
-    feign: DEBUG
-    graphql: DEBUG
-```
-
-2.1. Run
+1.1. Run
 
 - Gradle: `$ gradlew bootRun`
 - Docker: `$ docker-compose up` (or `$ docker-compose up --build` if image should be rebuilt)
 
-2.2. Debug
+1.2. Debug
 
 Run remote debugger from IDE. Debug port is 5005
 
