@@ -1,0 +1,7 @@
+app:
+  icndb-url: https://api.icndb.com
+
+logging:
+  level:
+    feign: DEBUG
+    graphql: DEBUG

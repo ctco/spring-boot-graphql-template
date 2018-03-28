@@ -6,10 +6,6 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Features
 ​
-- Type safe Configuration with [dotenv](https://12factor.net/config)
-  - Logging level, e.g. `LOGGING_LEVEL_feign=DEBUG`
-  - App properties, e.g. `APP_DEPENDENCY_API_HOST=example.com`
-  - See [Spring Boot documentation on relaxed property binding](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-relaxed-binding)
 - Docker :whale: configuration for production deployment, development and test
   - Remote debugging for development mode
 
@@ -46,15 +42,12 @@ Spring Boot, GraphQL template project with batteries included.
 
 ## Develop
 
-1. Create `.env` file 
-
-Create top level `.env` file and add required [key-values](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html)
-
-e.g.:
+1. `application.ymp` by default contains url to icndb endpoint. In addition, log levels could be configured, e.g.:
 ```
-APP_ICNDB_URL=https://api.icndb.com
-LOGGING_LEVEL_feign=DEBUG
-LOGGING_LEVEL_graphql=DEBUG
+logging:
+  level:
+    feign: DEBUG
+    graphql: DEBUG
 ```
 
 2.1. Run
