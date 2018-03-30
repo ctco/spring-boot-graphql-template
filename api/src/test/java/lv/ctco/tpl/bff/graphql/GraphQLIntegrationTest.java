@@ -23,39 +23,35 @@ public class GraphQLIntegrationTest {
 
     private static final String GRAPHQL_PATH = "/graphql";
 
+    private static final String QUERY = "{jokes {jokeById(id: \"77\"){id,text}}}";
+
+    private static final String JOKE_ID = "77";
+
+    private static final String JOKE_TEXT = "Chuck Norris can divide by zero.";
+
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     @SneakyThrows
     public void testGetJokeById() {
-        val joke =
-            "{" +
-            "  jokes {" +
-            "    jokeById(id: \"77\") {" +
-            "      id," +
-            "      text" +
-            "    }" +
-            "  }" +
-            "}";
-
-        val result = graphQLPost(joke);
+        val result = graphQLPost();
 
         result.andExpect(status().isOk())
             .andExpect(jsonPath("$.errors").doesNotExist())
-            .andExpect(jsonPath("$.data.jokes.jokeById.id").value("77"))
-            .andExpect(jsonPath("$.data.jokes.jokeById.text").value("Chuck Norris can divide by zero."));
+            .andExpect(jsonPath("$.data.jokes.jokeById.id").value(JOKE_ID))
+            .andExpect(jsonPath("$.data.jokes.jokeById.text").value(JOKE_TEXT));
     }
 
     @SneakyThrows
-    private ResultActions graphQLPost(String query) {
-        return mockMvc.perform(post(GRAPHQL_PATH).content(request(query)));
+    private ResultActions graphQLPost() {
+        return mockMvc.perform(post(GRAPHQL_PATH).content(request()));
     }
 
     @SneakyThrows
-    private String request(String query) {
+    private String request() {
         val jsonQuery = new JSONObject();
-        jsonQuery.put("query", query);
+        jsonQuery.put("query", QUERY);
         return jsonQuery.toString();
     }
 }
