@@ -65,7 +65,7 @@ Run remote debugger from IDE. Debug port is 5005
 
 Assuming that the Docker image is already built on the previous step
 
-- Docker (add `-d` to run in daemon mode): `$ docker run -e 'APP_ICNDB_URL=https://api.icndb.com' -p 8080:8080 spring-boot-graphql-template`
+- Docker (add `-d` to run in daemon mode): `$ docker run -p 8080:8080 spring-boot-graphql-template`
 
 ## Tech Stack
 - [Spring Boot](https://projects.spring.io/spring-boot/) : Application framework
@@ -82,5 +82,3 @@ Assuming that the Docker image is already built on the previous step
   
 ## Packaging
 - Use the [Models and Connectors](https://dev-blog.apollodata.com/how-to-build-graphql-servers-87587591ded5) pattern to structure our GraphQL server code, since it is a well established pattern in GraphQL world. Such approach allows to refer to the existing approach instead of coming up with our own set of guidelines.
-
-

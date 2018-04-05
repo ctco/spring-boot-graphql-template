@@ -2,6 +2,7 @@
 *.iml
 .git
 build
+.gradle
 .settings
 bin
 .project
